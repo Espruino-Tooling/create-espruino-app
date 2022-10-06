@@ -1,0 +1,22 @@
+{
+  "name": "create-espruino-app",
+  "version": "0.0.0",
+  "description": "A cli npx tool to create an espruino app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin":{
+    "multiply":"bin/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/espruino-tools/create-espruino-app.git"
+  },
+  "author": "Callum McLuskey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/espruino-tools/create-espruino-app/issues"
+  },
+  "homepage": "https://github.com/espruino-tools/create-espruino-app#readme"
+}
