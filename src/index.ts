@@ -2,13 +2,41 @@
 const yargs = require("yargs");
 const { exec } = require("child_process");
 const downloader = require("github-download-directory");
+const cliSpinners = require("cli-spinners");
 
-console.log(`
-------------------------------------------------------------------
-                        CREATE ESPRUINO APP
-------------------------------------------------------------------
+function colorize(color: any, output: string) {
+  return ["\033[", color, "m", output, "\033[0m"].join("");
+}
+process.stdout.write(colorize(31, "\n   CCCCCCCC           "));
+process.stdout.write(colorize(34, "EEEEEEEEE              "));
+process.stdout.write(colorize(32, "AAAAA\n"));
 
-`);
+process.stdout.write(colorize(31, "  CCCCCCCC           "));
+process.stdout.write(colorize(34, "EEEEEEEEEEE           "));
+process.stdout.write(colorize(32, "AAA   AAA\n"));
+
+process.stdout.write(colorize(31, " CCCC                "));
+process.stdout.write(colorize(34, "EEE                  "));
+process.stdout.write(colorize(32, "AAA     AAA\n"));
+
+process.stdout.write(colorize(31, " CCC                 "));
+process.stdout.write(colorize(34, "EEEEEEEE             "));
+process.stdout.write(colorize(32, "AAAAAAAAAAA\n"));
+
+process.stdout.write(colorize(31, " CCCC                "));
+process.stdout.write(colorize(34, "EEE                  "));
+process.stdout.write(colorize(32, "AAAAAAAAAAA\n"));
+
+process.stdout.write(colorize(31, "  CCCCCCCC           "));
+process.stdout.write(colorize(34, "EEEEEEEEEEE          "));
+process.stdout.write(colorize(32, "AAA     AAA\n"));
+
+process.stdout.write(colorize(31, "   CCCCCCCC"));
+process.stdout.write(colorize(91, " REATE     "));
+process.stdout.write(colorize(34, "EEEEEEEEE"));
+process.stdout.write(colorize(94, "  SPRUINO  "));
+process.stdout.write(colorize(32, "AAA     AAA"));
+process.stdout.write(colorize(92, " PP\n\n"));
 
 let args = yargs.argv;
 
@@ -21,7 +49,14 @@ if (!app_name) {
 } else {
   switch (template) {
     case undefined: {
-      console.log("- cloning git repo");
+      console.log(
+        cliSpinners.dots.frames[0],
+        colorize(95, "- cloning git repo")
+      );
+      console.log(
+        cliSpinners.dots.frames[0],
+        colorize(95, "- installing node modules")
+      );
       exec(
         "npm init clone espruino-tools/cra-javascript#main " +
           app_name +
