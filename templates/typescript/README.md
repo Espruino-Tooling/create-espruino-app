@@ -1,6 +1,6 @@
 # Welcome to create-espruino-app
 
-Have fun with your espruino tools vanilla javascript app.
+Have fun with your espruino tools typescript app.
 
 ## 😀 Lets get started
 
@@ -18,12 +18,11 @@ lets get started
 
 - run `npm run build`.
 
-This will create a new folder `build`
+This will create a new folder `bin`
 
-You should see 3 files in here
+You should see 2 files in here
 
-- `bundled.js`
-- `bundled.css`
+- `main.js`
 - `index.html`
 
 the contents of this folder are new bundled and ready to be hosted online.
