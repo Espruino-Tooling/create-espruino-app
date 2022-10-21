@@ -23,9 +23,9 @@ if (!app_name) {
     case undefined: {
       console.log("- cloning git repo");
       exec(
-        "npm init clone https://github.com/espruino-tools/cra-javascript " +
+        "npm init clone espruino-tools/cra-javascript#main " +
           app_name +
-          "&& cd " +
+          " --force && cd " +
           app_name +
           " && npm i"
       );
