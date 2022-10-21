@@ -2,6 +2,7 @@
 "use strict";
 const yargs = require("yargs");
 const { exec } = require("child_process");
+const downloader = require("github-download-directory");
 console.log(`
 ------------------------------------------------------------------
                         CREATE ESPRUINO APP
@@ -18,7 +19,7 @@ else {
     switch (template) {
         case undefined: {
             console.log("- cloning git repo");
-            exec("npm init clone https://github.com/callummclu/picto-clone " +
+            exec("npm init clone https://github.com/espruino-tools/cra-javascript " +
                 app_name +
                 "&& cd " +
                 app_name +
