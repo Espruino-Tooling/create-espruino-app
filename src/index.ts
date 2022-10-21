@@ -1,6 +1,14 @@
 #! /usr/bin/env node
 const yargs = require("yargs");
 const { exec } = require("child_process");
+const downloader = require("github-download-directory");
+
+console.log(`
+------------------------------------------------------------------
+                        CREATE ESPRUINO APP
+------------------------------------------------------------------
+
+`);
 
 let args = yargs.argv;
 
@@ -13,9 +21,13 @@ if (!app_name) {
 } else {
   switch (template) {
     case undefined: {
+      console.log("- cloning git repo");
       exec(
-        "npm init clone https://github.com/callummclu/hello-wasm/tree/master/src " +
-          app_name
+        "npm init clone https://github.com/espruino-tools/cra-javascript " +
+          app_name +
+          "&& cd " +
+          app_name +
+          " && npm i"
       );
       break;
     }
