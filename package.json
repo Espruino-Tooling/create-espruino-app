@@ -2,12 +2,12 @@
   "name": "create-espruino-app",
   "version": "0.0.0",
   "description": "A cli npx tool to create an espruino app",
-  "main": "index.js",
+  "main": "bin/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
-  "bin":{
-    "multiply":"bin/index.js"
+  "bin": {
+    "multiply": "bin/index.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,13 @@
   "bugs": {
     "url": "https://github.com/espruino-tools/create-espruino-app/issues"
   },
-  "homepage": "https://github.com/espruino-tools/create-espruino-app#readme"
+  "homepage": "https://github.com/espruino-tools/create-espruino-app#readme",
+  "devDependencies": {
+    "typescript": "^4.8.4",
+    "webpack": "^5.74.0"
+  },
+  "dependencies": {
+    "create-clone": "^0.3.0",
+    "yargs": "^17.6.0"
+  }
 }

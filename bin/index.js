@@ -1,53 +1,22 @@
 #! /usr/bin/env node
-
-const ENVIRONMENTS = [
-    "typescript",
-    "react",
-    "react-typescript",
-    "vue",
-    "vue-typescript"
-]
-
-const vanilla = () => {
-    console.log('index.js')
+"use strict";
+const yargs = require("yargs");
+const { exec } = require("child_process");
+let args = yargs.argv;
+let app_name = args["_"][0];
+let template = args["template"];
+if (!app_name) {
+    console.log("you must enter a valid application name");
 }
-
-const typescript = () => {
-    console.log('index.ts')
-}
-
-const react = () => {
-    console.log('index.jsx')
-}
-
-const reactTypescript = () => {
-    console.log('index.tsx')
-}
-
-const vue = () => {
-    console.log('index.vue')
-
-}
-
-const vueTypescript = () => {
-    console.log('index.vue','ts')
-}
-
-const snakeToCamel = str =>
-  str.toLowerCase().replace(/([-_][a-z])/g, group =>
-    group
-      .toUpperCase()
-      .replace('-', '')
-      .replace('_', '')
-  );
-
-if ((process.argv).includes('--template')){
-    let env = process.argv[process.argv.indexOf('--template')+1]
-    if(!ENVIRONMENTS.includes(env)){
-        throw new Error(`${env} doesnt exist on --template`)
+else {
+    switch (template) {
+        case undefined: {
+            exec("npm init clone https://github.com/callummclu/hello-wasm/tree/master/src " +
+                app_name);
+            break;
+        }
+        default: {
+            throw Error(template + " is not a valid template");
+        }
     }
-    eval(`${snakeToCamel(env)}()`)
-} else {
-    vanilla()
 }
-
