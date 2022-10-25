@@ -47,18 +47,45 @@ let template = args["template"];
 if (!app_name) {
   console.log("you must enter a valid application name");
 } else {
+  console.log(cliSpinners.dots.frames[0], colorize(95, "- cloning git repo"));
+  console.log(
+    cliSpinners.dots.frames[0],
+    colorize(95, "- installing node modules")
+  );
   switch (template) {
     case undefined: {
-      console.log(
-        cliSpinners.dots.frames[0],
-        colorize(95, "- cloning git repo")
-      );
-      console.log(
-        cliSpinners.dots.frames[0],
-        colorize(95, "- installing node modules")
-      );
       exec(
-        "npm init clone espruino-tools/cra-javascript#main " +
+        "npm init clone espruino-tools/cea-javascript#main " +
+          app_name +
+          " --force && cd " +
+          app_name +
+          " && npm i"
+      );
+      break;
+    }
+    case "typescript": {
+      exec(
+        "npm init clone espruino-tools/cea-typescript#main " +
+          app_name +
+          " --force && cd " +
+          app_name +
+          " && npm i"
+      );
+      break;
+    }
+    case "react": {
+      exec(
+        "npm init clone espruino-tools/cea-react#main " +
+          app_name +
+          " --force && cd " +
+          app_name +
+          " && npm i"
+      );
+      break;
+    }
+    case "vue": {
+      exec(
+        "npm init clone espruino-tools/cea-vue#main " +
           app_name +
           " --force && cd " +
           app_name +
