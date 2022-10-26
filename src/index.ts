@@ -59,7 +59,8 @@ if (!app_name) {
           app_name +
           " --force && cd " +
           app_name +
-          " && npm i"
+          " && npm i" +
+          " && npm install @espruino-tools/device-controller"
       );
       break;
     }
@@ -69,7 +70,8 @@ if (!app_name) {
           app_name +
           " --force && cd " +
           app_name +
-          " && npm i"
+          " && npm i" +
+          " && npm install @espruino-tools/device-controller"
       );
       break;
     }
@@ -79,7 +81,8 @@ if (!app_name) {
           app_name +
           " --force && cd " +
           app_name +
-          " && npm i"
+          " && npm i" +
+          " && npm install @espruino-tools/device-controller"
       );
       break;
     }
@@ -89,7 +92,8 @@ if (!app_name) {
           app_name +
           " --force && cd " +
           app_name +
-          " && npm i"
+          " && npm i" +
+          " && npm install @espruino-tools/device-controller"
       );
       break;
     }
