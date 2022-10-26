@@ -1,0 +1,12 @@
+[submodule "templates/cea-javascript"]
+	path = templates/cea-javascript
+	url = https://github.com/espruino-tools/cea-javascript
+[submodule "templates/cea-typescript"]
+	path = templates/cea-typescript
+	url = https://github.com/espruino-tools/cea-typescript
+[submodule "templates/cea-react"]
+	path = templates/cea-react
+	url = https://github.com/espruino-tools/cea-react
+[submodule "templates/cea-vue"]
+	path = templates/cea-vue
+	url = https://github.com/espruino-tools/cea-vue
