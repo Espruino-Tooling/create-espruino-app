@@ -1,9 +1,9 @@
 #! /usr/bin/env node
+const util = require("util");
 const yargs = require("yargs");
-const { exec } = require("child_process");
+const exec = util.promisify(require("child_process").exec);
 const downloader = require("github-download-directory");
 const cliSpinners = require("cli-spinners");
-
 function colorize(color: any, output: string) {
   return ["\033[", color, "m", output, "\033[0m"].join("");
 }
@@ -38,6 +38,36 @@ process.stdout.write(colorize(94, "  SPRUINO  "));
 process.stdout.write(colorize(32, "AAA     AAA"));
 process.stdout.write(colorize(92, " PP\n\n"));
 
+async function generateInstall(clone_str: string) {
+  console.log(colorize(93, " [1/3]"), colorize(95, "- cloning git repo"));
+  try {
+    let clone = await exec(
+      clone_str + app_name + " --force" + " && cd " + app_name
+    );
+    console.log(
+      colorize(90, clone.stdout + "\n"),
+      colorize(93, "[2/3]"),
+      colorize(95, "- installing node modules")
+    );
+
+    let installDeps = await exec(
+      "npm i" + " && npm install @espruino-tools/device-controller"
+    );
+    console.log(
+      colorize(90, installDeps.stdout + "\n"),
+      colorize(93, "[3/3]"),
+      colorize(
+        92,
+        "DONE!!, get started by running `cd " +
+          app_name +
+          "` and running npm start"
+      )
+    );
+  } catch (e) {
+    console.error(e);
+  }
+}
+
 let args = yargs.argv;
 
 let app_name = args["_"][0];
@@ -45,70 +75,36 @@ let app_name = args["_"][0];
 let template = args["template"];
 
 let clean_install = args["clean-install"];
-
 if (!app_name) {
   console.log("you must enter a valid application name");
 } else {
-  console.log(cliSpinners.dots.frames[0], colorize(95, "- cloning git repo"));
-  console.log(
-    cliSpinners.dots.frames[0],
-    colorize(95, "- installing node modules")
-  );
   switch (template) {
     case undefined: {
       let clone_str = `npm init clone espruino-tools/cea-javascript#${
-        clean_install ? "clean-install" : "main"
+        clean_install ? "clean-install " : "main "
       }`;
-      exec(
-        clone_str +
-          app_name +
-          " --force && cd " +
-          app_name +
-          " && npm i" +
-          " && npm install @espruino-tools/device-controller"
-      );
+      generateInstall(clone_str);
       break;
     }
     case "typescript": {
       let clone_str = `npm init clone espruino-tools/cea-typescript#${
-        clean_install ? "clean-install" : "main"
+        clean_install ? "clean-install " : "main "
       }`;
-      exec(
-        clone_str +
-          app_name +
-          " --force && cd " +
-          app_name +
-          " && npm i" +
-          " && npm install @espruino-tools/device-controller"
-      );
+      generateInstall(clone_str);
       break;
     }
     case "react": {
       let clone_str = `npm init clone espruino-tools/cea-react#${
-        clean_install ? "clean-install" : "main"
+        clean_install ? "clean-install " : "main "
       }`;
-      exec(
-        clone_str +
-          app_name +
-          " --force && cd " +
-          app_name +
-          " && npm i" +
-          " && npm install @espruino-tools/device-controller"
-      );
+      generateInstall(clone_str);
       break;
     }
     case "vue": {
       let clone_str = `npm init clone espruino-tools/cea-vue#${
-        clean_install ? "clean-install" : "main"
+        clean_install ? "clean-install " : "main "
       }`;
-      exec(
-        clone_str +
-          app_name +
-          " --force && cd " +
-          app_name +
-          " && npm i" +
-          " && npm install @espruino-tools/device-controller"
-      );
+      generateInstall(clone_str);
       break;
     }
     default: {

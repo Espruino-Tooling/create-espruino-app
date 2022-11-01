@@ -1,6 +1,6 @@
 {
   "name": "create-espruino-app",
-  "version": "0.6.0",
+  "version": "0.6.3",
   "description": "A cli npx tool to create an espruino app",
   "main": "bin/index.js",
   "scripts": {
@@ -24,6 +24,7 @@
     "webpack": "^5.74.0"
   },
   "dependencies": {
+    "@espruino-tools/device-controller": "^1.6.4",
     "cli-spinners": "^2.7.0",
     "create-clone": "^0.3.0",
     "github-download-directory": "^3.0.0",
