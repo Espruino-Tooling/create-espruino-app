@@ -41,9 +41,7 @@ process.stdout.write(colorize(92, " PP\n\n"));
 async function generateInstall(clone_str: string) {
   console.log(colorize(93, " [1/3]"), colorize(95, "- cloning git repo"));
   try {
-    let clone = await exec(
-      clone_str + app_name + " --force" + " && cd " + app_name
-    );
+    let clone = await exec(clone_str + app_name + " --force");
     console.log(
       colorize(90, clone.stdout + "\n"),
       colorize(93, "[2/3]"),
@@ -51,7 +49,10 @@ async function generateInstall(clone_str: string) {
     );
 
     let installDeps = await exec(
-      "npm i" + " && npm install @espruino-tools/device-controller"
+      "cd " +
+        app_name +
+        " && npm i" +
+        " && npm install @espruino-tools/device-controller"
     );
     console.log(
       colorize(90, installDeps.stdout + "\n"),
