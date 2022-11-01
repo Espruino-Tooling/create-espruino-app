@@ -44,6 +44,8 @@ let app_name = args["_"][0];
 
 let template = args["template"];
 
+let clean_install = args["clean-install"];
+
 if (!app_name) {
   console.log("you must enter a valid application name");
 } else {
@@ -54,8 +56,11 @@ if (!app_name) {
   );
   switch (template) {
     case undefined: {
+      let clone_str = `npm init clone espruino-tools/cea-javascript#${
+        clean_install ? "clean-install" : "main"
+      }`;
       exec(
-        "npm init clone espruino-tools/cea-javascript#main " +
+        clone_str +
           app_name +
           " --force && cd " +
           app_name +
@@ -65,8 +70,11 @@ if (!app_name) {
       break;
     }
     case "typescript": {
+      let clone_str = `npm init clone espruino-tools/cea-typescript#${
+        clean_install ? "clean-install" : "main"
+      }`;
       exec(
-        "npm init clone espruino-tools/cea-typescript#main " +
+        clone_str +
           app_name +
           " --force && cd " +
           app_name +
@@ -76,8 +84,11 @@ if (!app_name) {
       break;
     }
     case "react": {
+      let clone_str = `npm init clone espruino-tools/cea-react#${
+        clean_install ? "clean-install" : "main"
+      }`;
       exec(
-        "npm init clone espruino-tools/cea-react#main " +
+        clone_str +
           app_name +
           " --force && cd " +
           app_name +
@@ -87,8 +98,11 @@ if (!app_name) {
       break;
     }
     case "vue": {
+      let clone_str = `npm init clone espruino-tools/cea-vue#${
+        clean_install ? "clean-install" : "main"
+      }`;
       exec(
-        "npm init clone espruino-tools/cea-vue#main " +
+        clone_str +
           app_name +
           " --force && cd " +
           app_name +
