@@ -49,10 +49,7 @@ async function generateInstall(clone_str: string) {
     );
 
     let installDeps = await exec(
-      "cd " +
-        app_name +
-        " && npm i" +
-        " && npm install @espruino-tools/device-controller"
+      "cd " + app_name + " && npm i" + " && npm install @espruino-tools/core"
     );
     console.log(
       colorize(90, installDeps.stdout + "\n"),
@@ -74,6 +71,8 @@ let args = yargs.argv;
 let app_name = args["_"][0];
 
 let template = args["template"];
+
+let peer = args["peer"];
 
 let clean_install = args["clean-install"];
 if (!app_name) {
