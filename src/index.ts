@@ -81,28 +81,52 @@ if (!app_name) {
   switch (template) {
     case undefined: {
       let clone_str = `npm init clone espruino-tools/cea-javascript#${
-        clean_install ? "clean-install " : "main "
+        clean_install
+          ? peer
+            ? "peer "
+            : "clean-install "
+          : peer
+          ? "peer "
+          : "main "
       }`;
       generateInstall(clone_str);
       break;
     }
     case "typescript": {
       let clone_str = `npm init clone espruino-tools/cea-typescript#${
-        clean_install ? "clean-install " : "main "
+        clean_install
+          ? peer
+            ? "peer "
+            : "clean-install "
+          : peer
+          ? "peer "
+          : "main "
       }`;
       generateInstall(clone_str);
       break;
     }
     case "react": {
       let clone_str = `npm init clone espruino-tools/cea-react#${
-        clean_install ? "clean-install " : "main "
+        clean_install
+          ? peer
+            ? "peer "
+            : "clean-install "
+          : peer
+          ? "peer "
+          : "main "
       }`;
       generateInstall(clone_str);
       break;
     }
     case "vue": {
       let clone_str = `npm init clone espruino-tools/cea-vue#${
-        clean_install ? "clean-install " : "main "
+        clean_install
+          ? peer
+            ? "peer "
+            : "clean-install "
+          : peer
+          ? "peer "
+          : "main "
       }`;
       generateInstall(clone_str);
       break;
