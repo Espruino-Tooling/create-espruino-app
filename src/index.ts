@@ -38,7 +38,7 @@ process.stdout.write(colorize(94, "  SPRUINO  "));
 process.stdout.write(colorize(32, "AAA     AAA"));
 process.stdout.write(colorize(92, " PP\n\n"));
 
-async function generateInstall(clone_str: string) {
+async function generateInstall(clone_str: string, peer = false) {
   console.log(colorize(93, " [1/3]"), colorize(95, "- cloning git repo"));
   try {
     let clone = await exec(clone_str + app_name + " --force");
@@ -49,7 +49,10 @@ async function generateInstall(clone_str: string) {
     );
 
     let installDeps = await exec(
-      "cd " + app_name + " && npm i" + " && npm install @espruino-tools/core"
+      "cd " +
+        app_name +
+        " && npm i" +
+        ` && npm install @espruino-tools/core ${peer && "@espruino-tools/peer"}`
     );
     console.log(
       colorize(90, installDeps.stdout + "\n"),
@@ -89,7 +92,7 @@ if (!app_name) {
           ? "peer "
           : "main "
       }`;
-      generateInstall(clone_str);
+      generateInstall(clone_str, peer);
       break;
     }
     case "typescript": {
@@ -102,7 +105,7 @@ if (!app_name) {
           ? "peer "
           : "main "
       }`;
-      generateInstall(clone_str);
+      generateInstall(clone_str, peer);
       break;
     }
     case "react": {
@@ -115,7 +118,7 @@ if (!app_name) {
           ? "peer "
           : "main "
       }`;
-      generateInstall(clone_str);
+      generateInstall(clone_str, peer);
       break;
     }
     case "vue": {
@@ -128,7 +131,7 @@ if (!app_name) {
           ? "peer "
           : "main "
       }`;
-      generateInstall(clone_str);
+      generateInstall(clone_str, peer);
       break;
     }
     default: {

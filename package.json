@@ -24,7 +24,7 @@
     "webpack": "^5.74.0"
   },
   "dependencies": {
-    "@espruino-tools/device-controller": "^1.6.4",
+    "@espruino-tools/core": "^1.0.2",
     "cli-spinners": "^2.7.0",
     "create-clone": "^0.3.0",
     "github-download-directory": "^3.0.0",
