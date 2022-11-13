@@ -1,6 +1,6 @@
 {
   "name": "create-espruino-app",
-  "version": "0.8",
+  "version": "0.8.0",
   "description": "A cli npx tool to create an espruino app",
   "main": "bin/index.js",
   "scripts": {
