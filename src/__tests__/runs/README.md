@@ -1,3 +1,3 @@
 ```
-placeholder to allow for folder to be present
+placeholder to allow for folder to be present.
 ```
