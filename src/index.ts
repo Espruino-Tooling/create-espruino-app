@@ -1,7 +1,7 @@
 #! /usr/bin/env node
-const util = require("util");
+var util = require("util");
 const yargs = require("yargs");
-const exec = util.promisify(require("child_process").exec);
+var exec = util.promisify(require("child_process").exec);
 const downloader = require("github-download-directory");
 const cliSpinners = require("cli-spinners");
 function colorize(color: any, output: string) {
