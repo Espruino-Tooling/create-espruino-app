@@ -1,30 +1,30 @@
-export const JS_vanilla = `README.md
+export const JS_vanilla = `package.json
 package-lock.json
-package.json
+README.md
 webpack.config.js
 index.html
 index.js`;
 
-export const TS_vanilla = `README.md
+export const TS_vanilla = `package.json
 package-lock.json
-package.json
+README.md
 tsconfig.json
 webpack.config.js
 index.html
 index.ts`;
 
-export const React_vanilla = `README.md
+export const React_vanilla = `package.json
 package-lock.json
-package.json
+README.md
 index.html
 App.jsx
 index.jsx`;
 
-export const Vue_vanilla = `README.md
-babel.config.js
+export const Vue_vanilla = `babel.config.js
 jsconfig.json
-package-lock.json
 package.json
+package-lock.json
+README.md
 vue.config.js
 index.html
 App.vue
