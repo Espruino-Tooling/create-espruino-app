@@ -16,6 +16,7 @@ steps:
 
   - script: |
       npm install
+      npm i create-espruino-app -G
       npm run build
       npm run test
     displayName: "npm install and build and test"
